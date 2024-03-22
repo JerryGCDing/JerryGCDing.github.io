@@ -266,7 +266,7 @@
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
-	    <h2 class="title is-3" style="text-align:center;">Qualitative Results</h2>
+	    <h2 class="title is-3" style="text-align:center;">Tracking Results</h2>
 	      <div id="results-carousel" class="carousel results-carousel">
 	        <div class="item item-demo-0">
 	          <video poster="" id="demo-0" autoplay controls muted loop playsinline height="100%">
