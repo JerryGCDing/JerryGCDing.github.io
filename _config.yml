@@ -178,9 +178,6 @@ collections:
   odtformer:
     output: true
     permalink: /odtformer/:path/
-  not-found:
-    output: true
-    permalink: /404/:path/
   coming-soon:
     output: true
     permalink: /coming-soon/:path/
