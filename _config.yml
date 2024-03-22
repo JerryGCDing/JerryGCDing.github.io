@@ -175,6 +175,15 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+  odtformer:
+    output: true
+    permalink: /odtformer/:path/
+  not-found:
+    output: true
+    permalink: /404/:path/
+  coming-soon:
+    output: true
+    permalink: /coming-soon/:path/
 
 announcements:
   enabled: true
