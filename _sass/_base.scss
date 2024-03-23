@@ -213,6 +213,10 @@ ul.task-list input[type="checkbox"] {
     height: 2rem;
 
     a {
+      text-decoration: none;
+      color: var(--global-text-color);
+      transition-property: all 0.2s ease-in-out;
+
       i::before {
         color: var(--global-text-color);
         transition-property: all 0.2s ease-in-out;
@@ -223,6 +227,10 @@ ul.task-list input[type="checkbox"] {
           color: var(--global-theme-color);
         }
       }
+    }
+
+    a:hover {
+      color: #66ccff;
     }
   }
 }
