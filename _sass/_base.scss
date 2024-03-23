@@ -205,6 +205,23 @@ ul.task-list input[type="checkbox"] {
       margin: 0;
     }
   }
+
+  .contact-icons {
+    font-size: 2rem;
+
+    a {
+      i::before {
+        color: var(--global-text-color);
+        transition-property: all 0.2s ease-in-out;
+      }
+
+      &:hover {
+        i::before {
+          color: var(--global-theme-color);
+        }
+      }
+    }
+  }
 }
 
 .profile.float-right {
