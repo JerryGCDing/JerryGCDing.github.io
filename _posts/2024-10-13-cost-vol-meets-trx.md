@@ -189,7 +189,7 @@ of tokens that contain multi-view and multi-scale matching cost information.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="/assets/img/blog/cost-volume/sd_sampling.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="/assets/img/blog/cost-volume/3d_sampling.png" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="/assets/img/blog/cost-volume/multi_scale_sampling.png" class="img-fluid rounded z-depth-1" zoomable=true %}
