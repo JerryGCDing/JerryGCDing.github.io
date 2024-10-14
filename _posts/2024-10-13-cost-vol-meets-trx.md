@@ -3,9 +3,10 @@ layout: distill
 title: Why Cost Volume Construction Can Be a Non-Trivial Yet Interesting Problem in Transformer-Based Models?
 description: a technical post reflecting our work in leveraging Transformer architecture for reconstruction
 tags: computer-vision algorithm
+categories: reflection
 date: 2024-10-13 20:03:00
 featured: true
-thumbnail: assets/img/blog/cost-volume/thumbnail.png
+thumbnail: /assets/img/blog/cost-volume/3d_sampling.png
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
@@ -15,7 +16,15 @@ thumbnail: assets/img/blog/cost-volume/thumbnail.png
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
   - name: Introduction
-  - name:
+  - name: Cost Volume
+  - name: Learning-Based Cost Volume Construction
+  - name: Cost Volume meets Transformer
+  - name: Voxel Occupancy Detection
+  - name: Multiscale Deformable Attention (MDA) Mechanism
+  - name: MDA in BEV Occupancy Detection
+  - name: Stereo Occupancy Detection meets MDA
+  - name: Deformable Matching Cost Block
+  - name: Conclusion
 ---
 
 ## Introduction
@@ -43,7 +52,7 @@ images.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/blog/cost-volume/1GFLM.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="/assets/img/blog/cost-volume/1GFLM.png" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="caption">
@@ -117,7 +126,7 @@ through grid sampling using the sampling locations and the query will be attendi
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/blog/cost-volume/mda.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="/assets/img/blog/cost-volume/mda.png" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="caption">
@@ -143,7 +152,7 @@ averaging the outputs from views that the 3D query coordinates fall into and pro
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/blog/cost-volume/bevformer.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="/assets/img/blog/cost-volume/bevformer.png" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="caption">
@@ -180,10 +189,10 @@ of tokens that contain multi-view and multi-scale matching cost information.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/blog/cost-volume/sd_sampling.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="/assets/img/blog/cost-volume/sd_sampling.png" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/blog/cost-volume/multi_scale_sampling.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="/assets/img/blog/cost-volume/multi_scale_sampling.png" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="caption">
