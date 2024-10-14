@@ -47,7 +47,7 @@ features between two or more images. Why is it essential? Because for stereo (*t
 two images of a 3D point should have the same y-coordinate meaning no vertical shift*), the epipolar geometry tells us 
 that the depth (*Z*) of a certain 3D point, visible on both images, can be calculated as $$Z = B * f / disparity$$ 
 as shown in the figure below, where $$B$$ refers to the baseline (*distance between two cameras*), $$f$$ is the camera focal length as part 
-of the camera intrinsic and disparity is the shift in the x-coordinate of the corresponding points' coordinates on the two 
+of the camera intrinsic and $$disparity$$ is the shift in the x-coordinate of the corresponding points' coordinates on the two 
 images. 
 
 <div class="row mt-3">
@@ -88,7 +88,7 @@ impressive performances in depth estimation and reconstruction.
 However, the cost volume construction method has some fatal weaknesses when trying to combine it with a Transformer-based
 architecture. First of all, although there's already a quite mature pipeline of how Transformer can be used to process
 2D image data pioneered by [Vision Transformer](https://bibbase.org/service/mendeley/bfbbf840-4c42-3914-a463-19024f50b30c/file/264ac473-27b7-bd53-3963-f6a07df9b72e/Dosovitskiy_et_al___2021___An_Image_is_Worth_16x16_Words_Transformers_for_Im.pdf.pdf) 
-(ViT) by converting an image into uniform-sized patches and extracting token features for each patch, but the cost
+(ViT) by splitting an image into uniform-sized patches and extracting token features for each patch, but the cost
 volume requires adding dimension to the data which needs to consider a lot more extra factors, 
 such as, what's the meaning of information carried by the dimension, do we process it as a whole or partition it into 
 more fine-grained features. Moreover, because of the quadratic growth in the computational complexity of the Attention 
