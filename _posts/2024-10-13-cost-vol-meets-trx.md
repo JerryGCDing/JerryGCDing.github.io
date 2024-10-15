@@ -216,5 +216,5 @@ It's fascinating to dive deep into the topic of how the technique of cost volume
 of a Transformer-based model, but what lies more within such research endeavor is that if we can correctly find the sweet
 point of how to reformulate the problem representation of the model considering certain invariants. 
 Simple yet intuitive designs can also greatly boost the model performance without affecting computational efficiency 
-which can be useful for improving model generalizability across different domains and settings, as well as its 
+which can be useful for improving model robustness and generalizability across different domains and settings, as well as its 
 affordability on edge devices.
