@@ -31,9 +31,9 @@ toc:
 
 Since the introduction of the Transformer architecture in 2017 by Vaswani et al., it has gained increasing attention from its
 original domain Natural Language Processing (NLP) to Computer Vision (CV). Because of its impressive learning capability,
-Transformer-based methods have achieved state-of-the-art (SOTA) results in various tasks. For lots of research endeavors 
-nowadays, the first thing on the list is to find a data representation that Transformer can process since it 
-only takes a sequence of tokens inherently. 
+Transformer-based methods have achieved state-of-the-art (SOTA) results in various tasks. For many research endeavors 
+nowadays, the first thing on the list is to find a way to tokenize structured data representation into unstructured ones
+that Transformer can process since it only inherently takes a sequence of tokens. 
 This blog won't go into much detail about the tokenization process as it's still an 
 open question about what's the most effective way to preprocess and tokenize a certain data representation, from my 
 perspective. I'd like to talk about in my recent research work [*ODTFormer*](https://jerrygcding.github.io/odtformer/), 
@@ -81,7 +81,7 @@ disparity levels*) and can be processed by another 3D convolution block to get t
 Reflecting on this process, it's an exhaustive search method that iterates through all possible disparities where some 
 camera parameters and training data-specific settings are inevitably being hardcoded into the model during the training 
 process, leading to issues for model generalizability and computation efficiency. But because of the nature of 
-convolution architecture being good at handling spatial and volumetric data representations, such approach shows 
+convolution architecture being good at handling structured data representations, such approach shows 
 impressive performances in depth estimation and reconstruction.
 
 ## Cost Volume meets Transformer
