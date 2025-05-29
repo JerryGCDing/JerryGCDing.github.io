@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: Why Cost Volume Construction Can Be a Non-Trivial Yet Interesting Problem in Transformer-Based Models?
-description: a technical post reflecting our work in leveraging Transformer architecture for reconstruction
+description: A technical post reflecting our work in leveraging Transformer architecture for reconstruction
 tags: computer-vision algorithm
 categories: reflection
 date: 2024-10-13 20:03:00
