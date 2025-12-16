@@ -1,11 +1,3 @@
-"adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
-
-"podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
-
 "li":
   - firstname: ["Hongyu", "H."]
     url: https://lhy.xyz/
@@ -33,3 +25,15 @@
 "yang":
   - firstname: ["Jianwei", "J."]
     url: https://jwyang.github.io/
+
+"liang":
+  - firstname: ["Yiqing", "Y."]
+    url: https://lynl7130.github.io/
+
+"chatterjee":
+  - firstname: ["Moitreya", "M."]
+    url: https://sites.google.com/site/metrosmiles/
+
+"miraldo":
+  - firstname: ["Pedro", "P."]
+    url: https://pmiraldo.github.io/
