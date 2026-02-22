@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Two papers accepted by CVPR 2026. See you in Denver!
+Two papers accepted by CVPR 2026. See you in Denver :mountain_snow:!
