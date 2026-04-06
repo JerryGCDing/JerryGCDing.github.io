@@ -263,7 +263,7 @@ sass:
 # -----------------------------------------------------------------------------
 
 jekyll-minifier:
-  exclude: ["robots.txt"]
+  exclude: ["robots.txt", "assets/js/cursor-bg.js"]
   uglifier_args:
     harmony: true
 

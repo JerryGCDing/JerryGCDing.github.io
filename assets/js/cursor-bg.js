@@ -29,12 +29,12 @@
     light: { r: 110, g: 130, b: 175 },
     dark:  { r:  70, g: 155, b: 195 },
     // Opacity levels
-    dotBaseAlpha:  0.16,  // dot at rest
-    dotNearAlpha:  0.48,  // dot when cursor is close
+    dotBaseAlpha:  0.22,  // dot at rest
+    dotNearAlpha:  0.55,  // dot when cursor is close
     dotNearR:      160,   // px — distance at which dot reaches dotNearAlpha
-    lineBaseAlpha: 0.10,  // grid lines at rest
-    lineNearAlpha: 0.22,  // grid lines boosted near cursor
-    glowAlpha:     0.05,  // radial glow at cursor center
+    lineBaseAlpha: 0.13,  // grid lines at rest
+    lineNearAlpha: 0.28,  // grid lines boosted near cursor
+    glowAlpha:     0.07,  // radial glow at cursor center
     glowR:         110,   // px — glow radius
   };
 
