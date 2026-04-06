@@ -34,3 +34,10 @@
 
 <!-- Jupyter Open External Links New Tab -->
 <script defer src="{{ '/assets/js/jupyter_new_tab.js' | relative_url | bust_file_cache }}"></script>
+
+{% if site.enable_cursor_animation %}
+  <!-- Cursor tracking background animation -->
+  <!-- To disable: set enable_cursor_animation: false in _config.yml -->
+  <!-- To remove entirely: delete assets/js/cursor-bg.js and this block -->
+  <script defer src="{{ '/assets/js/cursor-bg.js' | relative_url | bust_file_cache }}"></script>
+{% endif %}
