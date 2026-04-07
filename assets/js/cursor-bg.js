@@ -65,8 +65,9 @@
   // Grid
   // ---------------------------------------------------------------------------
   function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
+    var rect = canvas.getBoundingClientRect();
+    W = canvas.width  = Math.round(rect.width);
+    H = canvas.height = Math.round(rect.height);
     cols = Math.ceil(W / CFG.spacing) + 2;
     rows = Math.ceil(H / CFG.spacing) + 2;
     buildGrid();
