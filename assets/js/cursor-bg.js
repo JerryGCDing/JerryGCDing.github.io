@@ -10,9 +10,6 @@
 (function () {
   'use strict';
 
-  // Bail out for users who prefer reduced motion.
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
   // ---------------------------------------------------------------------------
   // Config — tweak here to adjust the feel without touching the draw loop.
   // ---------------------------------------------------------------------------
