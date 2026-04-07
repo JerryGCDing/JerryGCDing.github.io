@@ -14,25 +14,29 @@
   // Config — tweak here to adjust the feel without touching the draw loop.
   // ---------------------------------------------------------------------------
   var CFG = {
-    spacing:      80,    // px between grid points (larger = sparser)
-    attractR:     200,   // px — cursor influence radius
-    attractK:     0.14,  // max fractional displacement toward cursor (0–1)
-    lerpSpeed:    0.10,  // how fast points chase their target per frame
-    lineDist:     116,   // px — max actual distance to draw a connecting line
-    dotR:         1.3,   // dot radius in px
-    // Colors — intentionally muted/desaturated to stay ambient
-    //   light mode: slate-blue at very low opacity
-    //   dark mode:  steel-cyan at very low opacity
-    light: { r: 110, g: 130, b: 175 },
-    dark:  { r:  70, g: 155, b: 195 },
+    spacing:      65,    // px between grid points
+    attractR:     260,   // px — cursor influence radius
+    attractK:     0.24,  // max fractional displacement toward cursor (0–1)
+    lerpSpeed:    0.13,  // how fast points chase their target per frame
+    lineDist:     100,   // px — max actual distance to draw a connecting line
+    dotR:         2.0,   // dot radius in px
+    // Colors — sci-fi palette
+    //   light mode: electric blue
+    //   dark mode:  electric cyan
+    light: { r: 65,  g: 100, b: 210 },
+    dark:  { r:  0,  g: 190, b: 255 },
     // Opacity levels
-    dotBaseAlpha:  0.22,  // dot at rest
-    dotNearAlpha:  0.55,  // dot when cursor is close
-    dotNearR:      160,   // px — distance at which dot reaches dotNearAlpha
-    lineBaseAlpha: 0.13,  // grid lines at rest
-    lineNearAlpha: 0.28,  // grid lines boosted near cursor
-    glowAlpha:     0.07,  // radial glow at cursor center
-    glowR:         110,   // px — glow radius
+    dotBaseAlpha:  0.32,  // dot at rest
+    dotNearAlpha:  0.85,  // dot when cursor is close
+    dotNearR:      210,   // px — distance at which dot reaches dotNearAlpha
+    lineBaseAlpha: 0.20,  // grid lines at rest
+    lineNearAlpha: 0.55,  // grid lines boosted near cursor
+    glowAlpha:     0.12,  // radial glow at cursor center
+    glowR:         150,   // px — glow radius
+    // Reticle — sci-fi corner-bracket cursor marker
+    reticleSize:   18,    // half-width of the bracket square in px
+    reticleTick:   7,     // arm length of each corner bracket
+    reticleAlpha:  0.80,  // opacity of reticle
   };
 
   // ---------------------------------------------------------------------------
@@ -162,6 +166,9 @@
       ctx.arc(mx, my, CFG.glowR, 0, 6.2832);
       ctx.fillStyle = grad;
       ctx.fill();
+
+      // --- cursor reticle ---
+      drawReticle(mx, my, c);
     }
   }
 
@@ -190,6 +197,35 @@
     ctx.strokeStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + alpha.toFixed(3) + ')';
     ctx.lineWidth = 0.5;
     ctx.stroke();
+  }
+
+  function drawReticle(mx, my, c) {
+    var s = CFG.reticleSize;
+    var t = CFG.reticleTick;
+    var col = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',';
+
+    // Outer ring
+    ctx.beginPath();
+    ctx.arc(mx, my, s + 10, 0, 6.2832);
+    ctx.strokeStyle = col + (CFG.reticleAlpha * 0.3).toFixed(3) + ')';
+    ctx.lineWidth = 0.7;
+    ctx.stroke();
+
+    // Corner brackets
+    ctx.strokeStyle = col + CFG.reticleAlpha + ')';
+    ctx.lineWidth = 1.4;
+    ctx.beginPath();
+    ctx.moveTo(mx - s,     my - s + t); ctx.lineTo(mx - s, my - s); ctx.lineTo(mx - s + t, my - s);
+    ctx.moveTo(mx + s - t, my - s);     ctx.lineTo(mx + s, my - s); ctx.lineTo(mx + s,     my - s + t);
+    ctx.moveTo(mx + s,     my + s - t); ctx.lineTo(mx + s, my + s); ctx.lineTo(mx + s - t, my + s);
+    ctx.moveTo(mx - s + t, my + s);     ctx.lineTo(mx - s, my + s); ctx.lineTo(mx - s,     my + s - t);
+    ctx.stroke();
+
+    // Center dot
+    ctx.beginPath();
+    ctx.arc(mx, my, 1.5, 0, 6.2832);
+    ctx.fillStyle = col + CFG.reticleAlpha + ')';
+    ctx.fill();
   }
 
   function dist2pt(x1, y1, x2, y2) {
