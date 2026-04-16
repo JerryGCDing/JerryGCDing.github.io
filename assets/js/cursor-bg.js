@@ -29,8 +29,8 @@
     dotBaseAlpha:  0.32,  // dot at rest
     dotNearAlpha:  0.85,  // dot when cursor is close
     dotNearR:      210,   // px — distance at which dot reaches dotNearAlpha
-    lineBaseAlpha: 0.32,  // grid lines at rest
-    lineNearAlpha: 0.70,  // grid lines boosted near cursor
+    lineBaseAlpha: 0.20,  // grid lines at rest
+    lineNearAlpha: 0.55,  // grid lines boosted near cursor
     glowAlpha:     0.12,  // radial glow at cursor center
     glowR:         150,   // px — glow radius
     // Reticle — sci-fi corner-bracket cursor marker
@@ -196,13 +196,15 @@
     } else {
       alpha = CFG.lineBaseAlpha;
     }
+    // Also fade by how stretched the edge is
+    alpha *= (1 - d / CFG.lineDist) * 1.4;
     alpha = Math.min(alpha, CFG.lineNearAlpha);
 
     ctx.beginPath();
     ctx.moveTo(a.x, a.y);
     ctx.lineTo(b.x, b.y);
     ctx.strokeStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + alpha.toFixed(3) + ')';
-    ctx.lineWidth = 0.9;
+    ctx.lineWidth = 0.5;
     ctx.stroke();
   }
 
