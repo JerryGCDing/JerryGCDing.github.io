@@ -41,6 +41,7 @@
     ambientAmp:   10,     // px — max drift displacement per point
     ambientFreqX: 0.0005, // x oscillation speed  (one cycle ≈ 12 s at 60 fps)
     ambientFreqY: 0.0004, // y oscillation speed — different to produce elliptical paths
+    jitter:       18,     // px — max random offset applied to each point's origin at init
   };
 
   // ---------------------------------------------------------------------------
@@ -81,8 +82,8 @@
     points = new Array(cols * rows);
     for (var r = 0; r < rows; r++) {
       for (var c = 0; c < cols; c++) {
-        var ox = c * CFG.spacing;
-        var oy = r * CFG.spacing;
+        var ox = c * CFG.spacing + (Math.random() * 2 - 1) * CFG.jitter;
+        var oy = r * CFG.spacing + (Math.random() * 2 - 1) * CFG.jitter;
         points[r * cols + c] = { ox: ox, oy: oy, x: ox, y: oy, phase: Math.random() * 6.2832 };
       }
     }
