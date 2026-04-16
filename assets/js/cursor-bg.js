@@ -37,6 +37,10 @@
     reticleSize:   18,    // half-width of the bracket square in px
     reticleTick:   7,     // arm length of each corner bracket
     reticleAlpha:  0.80,  // opacity of reticle
+    // Ambient grid drift — animates even without cursor movement
+    ambientAmp:   10,     // px — max drift displacement per point
+    ambientFreqX: 0.0005, // x oscillation speed  (one cycle ≈ 12 s at 60 fps)
+    ambientFreqY: 0.0004, // y oscillation speed — different to produce elliptical paths
   };
 
   // ---------------------------------------------------------------------------
@@ -79,7 +83,7 @@
       for (var c = 0; c < cols; c++) {
         var ox = c * CFG.spacing;
         var oy = r * CFG.spacing;
-        points[r * cols + c] = { ox: ox, oy: oy, x: ox, y: oy };
+        points[r * cols + c] = { ox: ox, oy: oy, x: ox, y: oy, phase: Math.random() * 6.2832 };
       }
     }
   }
@@ -108,15 +112,18 @@
       var p = points[i];
       var dx = mx - p.ox, dy = my - p.oy;
       var d2 = dx * dx + dy * dy;
+      var t   = performance.now();
+      var ax  = CFG.ambientAmp * Math.sin(t * CFG.ambientFreqX + p.phase);
+      var ay  = CFG.ambientAmp * Math.cos(t * CFG.ambientFreqY + p.phase);
       var tx, ty;
       if (d2 < attractR2) {
         var d  = Math.sqrt(d2);
         var k  = (1 - d / CFG.attractR) * CFG.attractK;
-        tx = p.ox + dx * k;
-        ty = p.oy + dy * k;
+        tx = p.ox + ax + dx * k;
+        ty = p.oy + ay + dy * k;
       } else {
-        tx = p.ox;
-        ty = p.oy;
+        tx = p.ox + ax;
+        ty = p.oy + ay;
       }
       p.x += (tx - p.x) * CFG.lerpSpeed;
       p.y += (ty - p.y) * CFG.lerpSpeed;
