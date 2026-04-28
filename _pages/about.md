@@ -17,7 +17,7 @@ social: false # includes social icons at the bottom of the page
 > _**"What I cannot create, I do not understand."**_ \
 > — Richard Feynman
 
-Hi! I am currently a Research Assistant at the Visual Intelligence Lab at Northeastern supervised by [Prof. Huaizu Jiang](https://jianghz.me/), and an incoming PhD student at The University of Texas at Austin. 
+Hi! I am currently a Research Assistant at the Visual Intelligence Lab at Northeastern supervised by [Prof. Huaizu Jiang](https://jianghz.me/), and an incoming PhD student at [The University of Texas at Austin](https://www.utexas.edu/). 
 I graduated magna cum laude with a B.S. Computer Science degree from [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/), [Northeastern University](https://www.northeastern.edu/).
 
 My research interests lie at the intersection of computer vision and geometric deep learning.
