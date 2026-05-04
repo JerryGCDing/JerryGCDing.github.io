@@ -1,39 +1,47 @@
-"li":
+"hongyu.li":
   - firstname: ["Hongyu", "H."]
     url: https://lhy.xyz/
 
-"jiang":
+"huaizu.jiang":
   - firstname: ["Huaizu", "H."]
     url: https://jianghz.me/
 
-"zhu":
+"fangrui.zhu":
   - firstname: ["Fangrui", "F."]
     url: https://fangruizhu.github.io/
 
-"wang":
+"hanhui.wang":
   - firstname: ["Hanhui", "H."]
     url: https://sarihust.github.io/
 
-"xie":
+"yiming.xie":
   - firstname: ["Yiming", "Y."]
     url: https://ymingxie.github.io/
 
-"gu":
+"jing.gu":
   - firstname: ["Jing", "J."]
     url: https://g-jing.github.io/
 
-"yang":
+"jianwei.yang":
   - firstname: ["Jianwei", "J."]
     url: https://jwyang.github.io/
 
-"liang":
+"yiqing.liang":
   - firstname: ["Yiqing", "Y."]
     url: https://lynl7130.github.io/
 
-"chatterjee":
+"moitreya.chatterjee":
   - firstname: ["Moitreya", "M."]
     url: https://sites.google.com/site/metrosmiles/
 
-"miraldo":
+"pedro.miraldo":
   - firstname: ["Pedro", "P."]
     url: https://pmiraldo.github.io/
+
+"prajnan.goswami"
+  - firstname: ["Prajnan", "P."]
+  url: https://prajnancv.github.io/
+
+"feng.liu":
+  - firstname: ["Feng", "F."]
+  url: https://scholar.google.com/citations?&user=uiqXutMAAAAJ
