@@ -40,8 +40,10 @@ Despite all three being the same problem at heart, *given a keypoint here, find 
 In our recent work [*UniCorrn*](https://arxiv.org/abs/2605.04044), we asked whether one model can do all three. 
 The short answer is yes — a single 600M-parameter model with shared weights matches the leading
 2D-2D specialists and beats the leading 2D-3D and 3D-3D specialists by 8% and 10% in registration recall on 7Scenes and 3DLoMatch, respectively. 
+
 The longer answer, which is what I want to write about here, is that getting there required committing to a **matching decoder** design that I think is badly under-explored relative to its potential. 
 This post is about that decoder — the design choices that make it work, why the matching decoder is the underrated piece in current correspondence foundation models, and why I think this kind of design is the right substrate to bet on for a future Large Correspondence Model. 
+
 I want to walk through the reasoning roughly the way I worked through it, because each design move only really makes sense in light of the constraint the previous one created.
  
 Underneath the technical specifics is a research instinct I keep returning to: that the most interesting wins in modern computer vision sit at the intersection of classical structural priors and large neural architectures, and that scaling carries you furthest when it is paired with the right explicit inductive bias rather than asked to do everything alone. 
@@ -73,9 +75,9 @@ But our experiments show it falls over on 2D-3D and 3D-3D — without an explici
 [COTR](https://arxiv.org/abs/2103.14167) concatenates source and target into a single sequence and lets a vanilla Transformer figure out matching. 
 Flexible, but in our ablations (Table 1 of the paper) it performs the worst across all three settings, presumably because the model has to discover the matching structure from scratch with no built-in bias.
  
-What I want to argue is that the four families above all share a quiet assumption: the *matching decoder* is a small, low-investment afterthought sitting on top of a large feature backbone. Nearest neighbor is one line. 
-Regression heads are an MLP. 
-Cost volumes do their work in a fixed correlation block before the network really starts thinking. The actually interesting design space sits in a matching decoder that hits all three desiderata at once — (1) end-to-end learning through stackable layers, (2) handling of irregular structures like point clouds without requiring a 2D grid, and (3) iterative geometric refinement of the correspondence estimate — and that space has been under-explored. 
+What I want to argue is that the four families above all share a quiet assumption: the *matching decoder* is a small, low-investment afterthought sitting on top of a large feature backbone - nearest neighbor is one line; regression heads are an MLP; cost volumes do their work in a fixed correlation block before the network really starts thinking. 
+
+The actually interesting design space sits in a matching decoder that hits all three desiderata at once — (1) end-to-end learning through stackable layers, (2) handling of irregular structures like point clouds without requiring a 2D grid, and (3) iterative geometric refinement of the correspondence estimate — and that space has been under-explored. 
 The point of this post is what such a decoder looks like, and why I think building it right is the most consequential architectural choice in a unified correspondence model.
 
 ## Attention and Matching
